@@ -1,7 +1,7 @@
 # Machine Learning Engineer Nanodegree
 ## Capstone Proposal
-Joe Udacity  
-December 31st, 2050
+Richard J. Taylor, PMP
+September 20, 2018
 
 ## Proposal
 _(approx. 2-3 pages)_
