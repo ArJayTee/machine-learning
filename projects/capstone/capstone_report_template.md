@@ -1,9 +1,11 @@
 # Machine Learning Engineer Nanodegree
 ## Capstone Project
-Joe Udacity  
-December 31st, 2050
+Richard J. Taylor  
+October 10, 2018
 
 ## I. Definition
+
+
 _(approx. 1-2 pages)_
 
 ### Project Overview
