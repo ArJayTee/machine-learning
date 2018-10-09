@@ -4,7 +4,7 @@ Richard J. Taylor, PMP
 September 20, 2018
 
 ## Proposal
-_(approx. 2-3 pages)_
+
 Using News to Predict Stock Movements
 
 https://www.kaggle.com/c/two-sigma-financial-news/data 
