@@ -5,9 +5,18 @@ September 20, 2018
 
 ## Proposal
 _(approx. 2-3 pages)_
+Using News to Predict Stock Movements
+
+https://www.kaggle.com/c/two-sigma-financial-news/data 
+
 
 ### Domain Background
 _(approx. 1-2 paragraphs)_
+
+Accurately predicting stock price performance is akin to the alchemy of turning lead into gold. There are those that have the ability to see trends, invest in correlation to those trends and make some money. However, accurate price performance is still an arduous if not impossible task. However, using machine learning one may gleam some insight into why these fluctuations occur.
+
+
+
 
 In this section, provide brief details on the background information of the domain from which the project is proposed. Historical information relevant to the project should be included. It should be clear how or why a problem in the domain can or should be solved. Related academic research should be appropriately cited in this section, including why that research is relevant. Additionally, a discussion of your personal motivation for investigating a particular problem in the domain is encouraged but not required.
 
