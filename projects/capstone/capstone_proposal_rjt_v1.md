@@ -13,15 +13,15 @@ https://www.kaggle.com/c/two-sigma-financial-news/data
 ### Domain Background
 _(approx. 1-2 paragraphs)_
 
-Accurately predicting stock price performance is akin to the alchemy of turning lead into gold. There are those that have the ability to see trends, invest in correlation to those trends and make some money. However, accurate price performance is still an arduous if not impossible task. However, using machine learning one may gleam some insight into why these fluctuations occur.
-
-
-
-
-In this section, provide brief details on the background information of the domain from which the project is proposed. Historical information relevant to the project should be included. It should be clear how or why a problem in the domain can or should be solved. Related academic research should be appropriately cited in this section, including why that research is relevant. Additionally, a discussion of your personal motivation for investigating a particular problem in the domain is encouraged but not required.
+Accurately predicting stock price performance is akin to the alchemy of turning lead into gold. There are those that have the ability to see trends, invest in correlation to those trends and make money. However, accurate stock prediction is still an arduous if not impossible task. However, using machine learning one may gleam some insight into why these fluctuations occur.
+This project will use data from specific days stock trades, compile this and compare it with a series of news articles which are published on the same date, data will also include a sentiment analysis. Using this data the algorithm will attempt to predict stock predictions. 
 
 ### Problem Statement
 _(approx. 1 paragraph)_
+
+This project will help identify whether machine learning techniques can predict stock market flucuations based on the current market state and news articles pertaining to specific types of stocks. Predictions will be stated in range [-1.0, 1.0], where the positive value is an increase in value and negative value is a decrease in value over a 10 trading day period. 
+
+Identify what supervised learning classification techniques will be used: Decision Tree, Gaussian NB, SVM, Neural Network, etc. How the data will be used (calculations) etc. 
 
 In this section, clearly describe the problem that is to be solved. The problem described should be well defined and should have at least one relevant potential solution. Additionally, describe the problem thoroughly such that it is clear that the problem is quantifiable (the problem can be expressed in mathematical or logical terms) , measurable (the problem can be measured by some metric and clearly observed), and replicable (the problem can be reproduced and occurs more than once).
 
