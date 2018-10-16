@@ -21,14 +21,72 @@ _(approx. 1 paragraph)_
 
 This project will help identify whether machine learning techniques can predict stock market flucuations based on the current market state and news articles pertaining to specific types of stocks. Predictions will be stated in range [-1.0, 1.0], where the positive value is an increase in value and negative value is a decrease in value over a 10 trading day period. 
 
-Identify what supervised learning classification techniques will be used: Decision Tree, Gaussian NB, SVM, Neural Network, etc. How the data will be used (calculations) etc. 
-
-In this section, clearly describe the problem that is to be solved. The problem described should be well defined and should have at least one relevant potential solution. Additionally, describe the problem thoroughly such that it is clear that the problem is quantifiable (the problem can be expressed in mathematical or logical terms) , measurable (the problem can be measured by some metric and clearly observed), and replicable (the problem can be reproduced and occurs more than once).
-
 ### Datasets and Inputs
 _(approx. 2-3 paragraphs)_
-
 In this section, the dataset(s) and/or input(s) being considered for the project should be thoroughly described, such as how they relate to the problem and why they should be used. Information such as how the dataset or input is (was) obtained, and the characteristics of the dataset or input, should be included with relevant references and citations as necessary It should be clear how the dataset(s) or input(s) will be used in the project and whether their use is appropriate given the context of the problem.
+
+
+The datasets used are provided by Intrinio via Kaggle.com and include the following: 
+"1. Market data (2007 to present) provided by Intrinio - contains financial market information such as opening price, closing price, trading volume, calculated returns, etc.
+2. News data (2007 to present) Source: Thomson Reuters - contains information about news articles/alerts published about assets, such as article details, sentiment, and other commentary." 
+Link to the Kaggle data - https://www.kaggle.com/dster/two-sigma-news-official-getting-started-kernel/data. 
+
+The marketdata_sample data includes: 
+
+time
+assetCode
+assetName
+universe
+volume
+close
+open
+returnsClosePrevRaw1
+returnsOpenPrevRaw1
+returnsClosePrevMktres1
+returnsOpenPrevMktres1
+returnsClosePrevRaw10
+returnsOpenPrevRaw10
+returnsClosePrevMktres10
+returnsOpenPrevMktres10
+returnsOpenNextMktres10
+
+
+The news_sample data contains:
+time
+sourceTimestamp
+firstCreated
+sourceId
+headline
+urgency
+takeSequence
+provider
+subjects
+audiences
+bodySize
+companyCount
+headlineTag
+marketCommentary
+sentenceCount
+wordCount
+assetCodes
+assetName
+firstMentionSentence
+relevance
+sentimentClass
+sentimentNegative
+sentimentNeutral
+sentimentPositive
+sentimentWordCount
+noveltyCount12H
+noveltyCount24H
+noveltyCount3D
+noveltyCount5D
+noveltyCount7D
+volumeCounts12H
+volumeCounts24H
+volumeCounts3D
+volumeCounts5D
+volumeCounts7D
 
 ### Solution Statement
 _(approx. 1 paragraph)_
