@@ -27,33 +27,33 @@ In this section, the dataset(s) and/or input(s) being considered for the project
 
 
 The datasets used are provided by Intrinio via Kaggle.com and include the following: 
-"1. Market data (2007 to present) provided by Intrinio - contains financial market information such as opening price, closing price, trading volume, calculated returns, etc.
-2. News data (2007 to present) Source: Thomson Reuters - contains information about news articles/alerts published about assets, such as article details, sentiment, and other commentary." 
-Link to the Kaggle data - https://www.kaggle.com/dster/two-sigma-news-official-getting-started-kernel/data. 
-
+"1. Market data (2007 to present) provided by Intrinio - contains financial market information such as opening price, closing price, trading volume, calculated returns, etc."
 The marketdata_sample data includes: 
 
-time
-assetCode
-assetName
-universe
-volume
-close
-open
-returnsClosePrevRaw1
-returnsOpenPrevRaw1
-returnsClosePrevMktres1
-returnsOpenPrevMktres1
-returnsClosePrevRaw10
-returnsOpenPrevRaw10
-returnsClosePrevMktres10
-returnsOpenPrevMktres10
-returnsOpenNextMktres10
+•	time(datetime64[ns, UTC]) - the current time (in marketdata, all rows are taken at 22:00 UTC)
+•	assetCode(object) - a unique id of an asset
+•	assetName(category) - the name that corresponds to a group of assetCodes. These may be "Unknown" if the corresponding assetCode does not have any rows in the news data.
+•	universe(float64) - a boolean indicating whether or not the instrument on that day will be included in scoring. This value is not provided outside of the training data time period. The trading universe on a given date is the set of instruments that are avilable for trading (the scoring function will not consider instruments that are not in the trading universe). The trading universe changes daily.
+•	volume(float64) - trading volume in shares for the day
+•	close(float64) - the close price for the day (not adjusted for splits or dividends)
+•	open(float64) - the open price for the day (not adjusted for splits or dividends)
+•	returnsClosePrevRaw1(float64) - see returns explanation above
+•	returnsOpenPrevRaw1(float64) - see returns explanation above
+•	returnsClosePrevMktres1(float64) - see returns explanation above
+•	returnsOpenPrevMktres1(float64) - see returns explanation above
+•	returnsClosePrevRaw10(float64) - see returns explanation above
+•	returnsOpenPrevRaw10(float64) - see returns explanation above
+•	returnsClosePrevMktres10(float64) - see returns explanation above
+•	returnsOpenPrevMktres10(float64) - see returns explanation above
+•	returnsOpenNextMktres10(float64) - 10 day, market-residualized return. This is the target variable used in competition scoring. The market data has been filtered such that returnsOpenNextMktres10 is always not null.
 
+
+2. "News data (2007 to present) Source: Thomson Reuters - contains information about news articles/alerts published about assets, such as article details, sentiment, and other commentary." 
+Link to the Kaggle data - https://www.kaggle.com/dster/two-sigma-news-official-getting-started-kernel/data
 
 The news_sample data contains:
-time
-sourceTimestamp
+time - Date and Time the data was collected. 
+sourceTimestamp - 
 firstCreated
 sourceId
 headline
