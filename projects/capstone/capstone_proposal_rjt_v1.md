@@ -105,9 +105,13 @@ The news_sample data contains:
 •	assetName(category) - name of the asset
 
 •	firstMentionSentence(int16) - the first sentence, starting with the headline, in which the scored asset is mentioned.
+ 
   o	1: headline
+  
   o	2: first sentence of the story body
+  
   o	3: second sentence of the body, etc
+  
   o	0: the asset being scored was not found in the news item's headline or body text. As a result, the entire news item's text (headline + body) will be used to determine the sentiment score.
 
 •	relevance(float32) - a decimal number indicating the relevance of the news item to the asset. It ranges from 0 to 1. If the asset is mentioned in the headline, the relevance is set to 1. When the item is an alert (urgency == 1), relevance should be gauged by firstMentionSentence instead.
