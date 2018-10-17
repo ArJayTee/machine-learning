@@ -27,7 +27,9 @@ In this section, the dataset(s) and/or input(s) being considered for the project
 
 
 The datasets used are provided by Intrinio via Kaggle.com and include the following: 
-"1. Market data (2007 to present) provided by Intrinio - contains financial market information such as opening price, closing price, trading volume, calculated returns, etc."
+
+"1. Market data (2007 to present) provided by Intrinio - contains financial market information such as opening price, closing price, trading volume, calculated returns, etc.", Kaggle.com NEED DATE & LINK
+
 The marketdata_sample data includes: 
 
 •	time(datetime64[ns, UTC]) - the current time (in marketdata, all rows are taken at 22:00 UTC)
@@ -64,6 +66,7 @@ The marketdata_sample data includes:
 
 
 2. "News data (2007 to present) Source: Thomson Reuters - contains information about news articles/alerts published about assets, such as article details, sentiment, and other commentary." 
+
 Link to the Kaggle data - https://www.kaggle.com/dster/two-sigma-news-official-getting-started-kernel/data
 
 The news_sample data contains:
@@ -106,13 +109,13 @@ The news_sample data contains:
 
 •	firstMentionSentence(int16) - the first sentence, starting with the headline, in which the scored asset is mentioned.
  
-  o	1: headline
+   o	1: headline
   
-  o	2: first sentence of the story body
+   o	2: first sentence of the story body
   
-  o	3: second sentence of the body, etc
+   o	3: second sentence of the body, etc
   
-  o	0: the asset being scored was not found in the news item's headline or body text. As a result, the entire news item's text (headline + body) will be used to determine the sentiment score.
+   o	0: the asset being scored was not found in the news item's headline or body text. As a result, the entire news item's text (headline + body) will be used to determine the sentiment score.
 
 •	relevance(float32) - a decimal number indicating the relevance of the news item to the asset. It ranges from 0 to 1. If the asset is mentioned in the headline, the relevance is set to 1. When the item is an alert (urgency == 1), relevance should be gauged by firstMentionSentence instead.
 
