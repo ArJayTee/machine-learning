@@ -11,7 +11,6 @@ https://www.kaggle.com/c/two-sigma-financial-news/data
 
 
 ### Domain Background
-_(approx. 1-2 paragraphs)_
 
 Accurately predicting stock price performance is akin to the alchemy of turning lead into gold. There are those that have the ability to see trends, invest in correlation to those trends and make money. However, accurate stock prediction is still an arduous if not impossible task. However, using machine learning one may gleam some insight into why these fluctuations occur.
 This project will use data from specific days stock trades, compile this and compare it with a series of news articles which are published on the same date, data will also include a sentiment analysis. Using this data the algorithm will attempt to predict stock predictions. 
@@ -23,8 +22,6 @@ This project will help identify whether machine learning techniques can predict 
 
 ### Datasets and Inputs
 _(approx. 2-3 paragraphs)_
-In this section, the dataset(s) and/or input(s) being considered for the project should be thoroughly described, such as how they relate to the problem and why they should be used. Information such as how the dataset or input is (was) obtained, and the characteristics of the dataset or input, should be included with relevant references and citations as necessary It should be clear how the dataset(s) or input(s) will be used in the project and whether their use is appropriate given the context of the problem.
-
 
 The datasets used are provided by Intrinio via Kaggle.com and include the following: 
 
