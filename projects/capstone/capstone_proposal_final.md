@@ -58,9 +58,11 @@ The training is then set by defining the semantic structures. The structures are
 
 #### Model Evaluation
 The BLEU Score is computed by counting matching n-grams in the candidate text compared to the reference text. A N-gram represents a sequence of words, where ‘n’ is the number of words in the ‘gram’. For instance:
+
      1.	Snickerdoodles are delicious | is a 3-gram
      2.	Cthulhu rises | is a 2-gram
      3.	He walked with intent | is a 4-gram
+
 Probabilities are assigned to the n-grams, which helps the model predict which N-grams may be placed together. This also helps to make next word predictions and spelling error corrections. 
 Using the predictive properties of the N-gram model predicts the next word based on the value of N. If ‘N = 2’ the model will use the previous word to predict the next word. If the instance of ‘N = 3’ the model will use the previous two words to predict the next word, Brownlee, J. (2017). 
 
