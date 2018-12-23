@@ -1,7 +1,7 @@
 # Machine Learning Engineer Nanodegree
 ## Capstone Proposal
 Richard J. Taylor, PMP
-October 9, 2018
+December 22, 2018
 
 ## Proposal
 
