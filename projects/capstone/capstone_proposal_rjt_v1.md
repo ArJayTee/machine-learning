@@ -46,16 +46,16 @@ The project work-flow will be as follows:
     •	Model Design
     •	Model Evaluation
 
-     ### Data Pre-Processing
+#### Data Pre-Processing
 First the data is compiled into a single string of characters. This will help when tokenizing the words and phrases. Then we will create lookup tables for the vocabulary which creates a tuple. After this the punctuation is tokenized by mapping. Finally, the data is processed and saved for further use. 
 
-     ### Model Design
+ #### Model Design
 The data is batched into input and target data. The words are replaced with IDs and the batch sizes are defined and combined as a numbpy array. 
 Hyperparameters such as the number of epochs, batch size, layers, dimensions, learning rate, etc. are defined and set.  
 Using TensorFlow the data is graphed. TensorFlow provides a context manager graph (tf.Graph.as_default). This step is where the text attributes are calculated and the RNN is called into action and built. The RNN will calculate the probability of word use and then have a loss function set. It will further have a learning optimizer and any gradient issues addressed and resolved via optimizers. 
 The training is then set by defining the semantic structures. The structures are batched and graphed, then trained over a set number of epochs. 
 
-     ### Model Evaluation
+#### Model Evaluation
 The BLEU Score is computed by counting matching n-grams in the candidate text compared to the reference text. A N-gram represents a sequence of words, where ‘n’ is the number of words in the ‘gram’. For instance:
      1.	Snickerdoodles are delicious | is a 3-gram
      2.	Cthulhu rises | is a 2-gram
