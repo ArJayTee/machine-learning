@@ -5,174 +5,86 @@ October 9, 2018
 
 ## Proposal
 
-Using News to Predict Stock Movements
-
-https://www.kaggle.com/c/two-sigma-financial-news/data 
-
+Text Generation with Recurrent Neural Networks
 
 ### Domain Background
 
-Accurately predicting stock price performance is akin to the alchemy of turning lead into gold. There are those that have the ability to see trends, invest in correlation to those trends and make money. However, accurate stock prediction is still an arduous if not impossible task. However, using machine learning one may gleam some insight into why these fluctuations occur.
-This project will use data from specific days stock trades, compile this and compare it with a series of news articles which are published on the same date, data will also include a sentiment analysis. Using this data the algorithm will attempt to predict stock predictions. 
+Science fiction is the oracle of technology. Isaac Asimov alone created visions of a future with tales of sentient machines and space travel is it any wonder so many children have grown to create thriving businesses as SpaceX and Boston Dynamics. Even the one that brought us the iPhone. Although I think they stole that naming idea from Asimov, Isaac, A. (2018). Wikipedia.
+Artificial Intelligence (AI) has been a part of the genre since its inception. There is no better way to give tribute to the gods of technology than have their creation foretell of a universe of its making. 
+This project will create an application that the user provides a quick blurb with a main character name and scenario that will generate a 1,000 word-essay.  
 
 ### Problem Statement
-_(approx. 1 paragraph)_
 
-This project will help identify whether machine learning techniques can predict stock market flucuations based on the current market state and news articles pertaining to specific types of stocks. Predictions will be stated in range [-1.0, 1.0], where the positive value is an increase in value and negative value is a decrease in value over a 10 trading day period. 
+Using Natural Language Processing (NLP) the application will create fictional work based on what its learned from the dataset, in this case stories of fiction. The purpose of this is not to create full works of fiction, but to illicit interest and motivation and with a little luck act as a sort of muse for both writers and scientists alike.
+This project will use a type of Recurrent Neural Network (RNN), a Bidirectional Recurrent Neural Network. Utilizing the Long Short-Term Memory (LSTM) mechanism or more specifically the Gated Recurrent Unit (GRU), which is a simplified LSTM to help with the Vanishing Gradient Problem that most RNN’s suffer. 
 
 ### Datasets and Inputs
-_(approx. 2-3 paragraphs)_
 
-The datasets used are provided by Intrinio via Kaggle.com and include the following: 
+The initial dataset is provided by Jannes Klaas via Kaggle and was originally created by Robin Sloan who collected it largely from the Pulp Magazine Archive, Klaas, J. (2018). SciFi Stories Text Corpus.  It is a 150MB .txt file containing Science Fiction stories from Galaxy and IF Magazine, but also contains a lot of noise. 
+There are errors and advertisements mixed within the stories. The file has been processed so it is in the form of a massive text file without line breaks. The punctuation has been normalized and most of the numbers replaced with a “#”. There is a lot of text, 137,246-words, which works well with RNNs.
 
-"1. Market data (2007 to present) provided by Intrinio - contains financial market information such as opening price, closing price, trading volume, calculated returns, etc.", Kaggle.com NEED DATE & LINK
-
-The marketdata_sample data includes: 
-
-•	time(datetime64[ns, UTC]) - the current time (in marketdata, all rows are taken at 22:00 UTC)
-
-•	assetCode(object) - a unique id of an asset
-
-•	assetName(category) - the name that corresponds to a group of assetCodes. These may be "Unknown" if the corresponding assetCode does not have any rows in the news data.
-
-•	universe(float64) - a boolean indicating whether or not the instrument on that day will be included in scoring. This value is not provided outside of the training data time period. The trading universe on a given date is the set of instruments that are avilable for trading (the scoring function will not consider instruments that are not in the trading universe). The trading universe changes daily.
-
-•	volume(float64) - trading volume in shares for the day
-
-•	close(float64) - the close price for the day (not adjusted for splits or dividends)
-
-•	open(float64) - the open price for the day (not adjusted for splits or dividends)
-
-•	returnsClosePrevRaw1(float64) - see returns explanation above
-
-•	returnsOpenPrevRaw1(float64) - see returns explanation above
-
-•	returnsClosePrevMktres1(float64) - see returns explanation above
-
-•	returnsOpenPrevMktres1(float64) - see returns explanation above
-
-•	returnsClosePrevRaw10(float64) - see returns explanation above
-
-•	returnsOpenPrevRaw10(float64) - see returns explanation above
-
-•	returnsClosePrevMktres10(float64) - see returns explanation above
-
-•	returnsOpenPrevMktres10(float64) - see returns explanation above
-
-•	returnsOpenNextMktres10(float64) - 10 day, market-residualized return. This is the target variable used in competition scoring. The market data has been filtered such that returnsOpenNextMktres10 is always not null.
-
-
-2. "News data (2007 to present) Source: Thomson Reuters - contains information about news articles/alerts published about assets, such as article details, sentiment, and other commentary." 
-
-Link to the Kaggle data - https://www.kaggle.com/dster/two-sigma-news-official-getting-started-kernel/data
-
-The news_sample data contains:
-
-•	time(datetime64[ns, UTC]) - UTC timestamp showing when the data was available on the feed (second precision)
-
-•	sourceTimestamp(datetime64[ns, UTC]) - UTC timestamp of this news item when it was created
-
-•	firstCreated(datetime64[ns, UTC]) - UTC timestamp for the first version of the item
-
-•	sourceId(object) - an Id for each news item
-
-•	headline(object) - the item's headline
-
-•	urgency(int8) - differentiates story types (1: alert, 3: article)
-
-•	takeSequence(int16) - the take sequence number of the news item, starting at 1. For a given story, alerts and articles have separate sequences.
-
-•	provider(category) - identifier for the organization which provided the news item (e.g. RTRS for Reuters News, BSW for Business Wire)
-
-•	subjects(category) - topic codes and company identifiers that relate to this news item. Topic codes describe the news item's subject matter. These can cover asset classes, geographies, events, industries/sectors, and other types.
-
-•	audiences(category) - identifies which desktop news product(s) the news item belongs to. They are typically tailored to specific audiences. (e.g. "M" for Money International News Service and "FB" for French General News Service)
-
-•	bodySize(int32) - the size of the current version of the story body in characters
-
-•	companyCount(int8) - the number of companies explicitly listed in the news item in the subjects field
-
-•	headlineTag(object) - the Thomson Reuters headline tag for the news item
-
-•	marketCommentary(bool) - boolean indicator that the item is discussing general market conditions, such as "After the Bell" summaries
-
-•	sentenceCount(int16) - the total number of sentences in the news item. Can be used in conjunction with firstMentionSentence to determine the relative position of the first mention in the item.
-
-•	wordCount(int32) - the total number of lexical tokens (words and punctuation) in the news item
-
-•	assetCodes(category) - list of assets mentioned in the item
-
-•	assetName(category) - name of the asset
-
-•	firstMentionSentence(int16) - the first sentence, starting with the headline, in which the scored asset is mentioned.
- 
-   o	1: headline
-  
-   o	2: first sentence of the story body
-  
-   o	3: second sentence of the body, etc
-  
-   o	0: the asset being scored was not found in the news item's headline or body text. As a result, the entire news item's text (headline + body) will be used to determine the sentiment score.
-
-•	relevance(float32) - a decimal number indicating the relevance of the news item to the asset. It ranges from 0 to 1. If the asset is mentioned in the headline, the relevance is set to 1. When the item is an alert (urgency == 1), relevance should be gauged by firstMentionSentence instead.
-
-•	sentimentClass(int8) - indicates the predominant sentiment class for this news item with respect to the asset. The indicated class is the one with the highest probability.
-
-•	sentimentNegative(float32) - probability that the sentiment of the news item was negative for the asset
-
-•	sentimentNeutral(float32) - probability that the sentiment of the news item was neutral for the asset
-
-•	sentimentPositive(float32) - probability that the sentiment of the news item was positive for the asset
-
-•	sentimentWordCount(int32) - the number of lexical tokens in the sections of the item text that are deemed relevant to the asset. This can be used in conjunction with wordCount to determine the proportion of the news item discussing the asset.
-
-•	noveltyCount12H(int16) - The 12 hour novelty of the content within a news item on a particular asset. It is calculated by comparing it with the asset-specific text over a cache of previous news items that contain the asset.
-
-•	noveltyCount24H(int16) - same as above, but for 24 hours
-
-•	noveltyCount3D(int16) - same as above, but for 3 days
-
-•	noveltyCount5D(int16) - same as above, but for 5 days
-
-•	noveltyCount7D(int16) - same as above, but for 7 days
-
-•	volumeCounts12H(int16) - the 12 hour volume of news for each asset. A cache of previous news items is maintained and the number of news items that mention the asset within each of five historical periods is calculated.
-
-•	volumeCounts24H(int16) - same as above, but for 24 hours
-
-•	volumeCounts3D(int16) - same as above, but for 3 days
-
-•	volumeCounts5D(int16) - same as above, but for 5 days
-
-•	volumeCounts7D(int16) - same as above, but for 7 days
-
+I would like to have better datasets. At some point I would like one for each genre of fiction. 
 
 ### Solution Statement
-_(approx. 1 paragraph)_
 
-In this section, clearly describe a solution to the problem. The solution should be applicable to the project domain and appropriate for the dataset(s) or input(s) given. Additionally, describe the solution thoroughly such that it is clear that the solution is quantifiable (the solution can be expressed in mathematical or logical terms) , measurable (the solution can be measured by some metric and clearly observed), and replicable (the solution can be reproduced and occurs more than once).
+We will use a type of neural network referred to as a Recurrent Neural Network (RNN) like what is used in Robin Sloan’s, Writing with the Machine, Sloan, R. (2016). Using memory, or a hidden state, a RNN models sequential interactions of inputs; such as a sentence.  The outputs may be a classification of how often words are used, or even the correlation of words used in conjunction with one-another. For each step the same parameters are used over for the different inputs, Natural Language Processing (NLP), Lin, C., Manning, C., Ng, A., and Socher, R. (2011).
+As described in the paper Parsing Natural Scenes and Natural Language with Recursive Neural Networks, Lin, C. Manning, C. Ng, A. and Socher, R. (2011), a NLP will be used to parse sentences in a recursive manner. The sentences will be cut into segmented features and word indices using TensorFlow and Keras APIs. The RNN will map these as semantic structures, where higher scoring structures are merged into larger ones and assigned class labels. 
 
 ### Benchmark Model
-_(approximately 1-2 paragraphs)_
 
-In this section, provide the details for a benchmark model or result that relates to the domain, problem statement, and intended solution. Ideally, the benchmark model or result contextualizes existing methods or known information in the domain and problem given, which could then be objectively compared to the solution. Describe how the benchmark model or result is measurable (can be measured by some metric and clearly observed) with thorough detail.
+Support Vector Machines (SVM) are regularly used as baselines for text categorization, Manning, C. and Wang, S (n.d.). A TensorFLow Support Vector Machine (SVM) model will be used as a benchmark for this project, TensorFlow, (2018). 
 
 ### Evaluation Metrics
-_(approx. 1-2 paragraphs)_
 
-In this section, propose at least one evaluation metric that can be used to quantify the performance of both the benchmark model and the solution model. The evaluation metric(s) you propose should be appropriate given the context of the data, the problem statement, and the intended solution. Describe how the evaluation metric(s) are derived and provide an example of their mathematical representations (if applicable). Complex evaluation metrics should be clearly defined and quantifiable (can be expressed in mathematical or logical terms).
+While intuition will be the main evaluation metric; readable stories are easy to identify by human evaluation. I will also use the Bilingual Evaluation Understudy (BLUE) score as an evaluation metric. 
+The BLEU Score evaluates a generated sentence to a reference sentence. The range of matching is from 1.0, which is a perfect match, to 0.0 for complete mismatch. Some good reasons to use this as an evaluation metrics as it is quick and inexpensive to calculate, easy to understand, language independent and correlates highly with human evaluations, Brownlee, J. (2017). 
 
 ### Project Design
-_(approx. 1 page)_
 
-In this final section, summarize a theoretical workflow for approaching a solution given the problem. Provide thorough discussion for what strategies you may consider employing, what analysis of the data might be required before being used, or which algorithms will be considered for your implementation. The workflow and discussion that you provide should align with the qualities of the previous sections. Additionally, you are encouraged to include small visualizations, pseudocode, or diagrams to aid in describing the project design, but it is not required. The discussion should clearly outline your intended workflow of the capstone project.
+The project work-flow will be as follows:
+    •	Data Pre-Processing
+    •	Model Design
+    •	Model Evaluation
 
------------
+     ### Data Pre-Processing
+First the data is compiled into a single string of characters. This will help when tokenizing the words and phrases. Then we will create lookup tables for the vocabulary which creates a tuple. After this the punctuation is tokenized by mapping. Finally, the data is processed and saved for further use. 
 
-**Before submitting your proposal, ask yourself. . .**
+     ### Model Design
+The data is batched into input and target data. The words are replaced with IDs and the batch sizes are defined and combined as a numbpy array. 
+Hyperparameters such as the number of epochs, batch size, layers, dimensions, learning rate, etc. are defined and set.  
+Using TensorFlow the data is graphed. TensorFlow provides a context manager graph (tf.Graph.as_default). This step is where the text attributes are calculated and the RNN is called into action and built. The RNN will calculate the probability of word use and then have a loss function set. It will further have a learning optimizer and any gradient issues addressed and resolved via optimizers. 
+The training is then set by defining the semantic structures. The structures are batched and graphed, then trained over a set number of epochs. 
 
-- Does the proposal you have written follow a well-organized structure similar to that of the project template?
-- Is each section (particularly **Solution Statement** and **Project Design**) written in a clear, concise and specific fashion? Are there any ambiguous terms or phrases that need clarification?
-- Would the intended audience of your project be able to understand your proposal?
-- Have you properly proofread your proposal to assure there are minimal grammatical and spelling mistakes?
-- Are all the resources used for this project correctly cited and referenced?
+     ### Model Evaluation
+The BLEU Score is computed by counting matching n-grams in the candidate text compared to the reference text. A N-gram represents a sequence of words, where ‘n’ is the number of words in the ‘gram’. For instance:
+     1.	Snickerdoodles are delicious | is a 3-gram
+     2.	Cthulhu rises | is a 2-gram
+     3.	He walked with intent | is a 4-gram
+Probabilities are assigned to the n-grams, which helps the model predict which N-grams may be placed together. This also helps to make next word predictions and spelling error corrections. 
+Using the predictive properties of the N-gram model predicts the next word based on the value of N. If ‘N = 2’ the model will use the previous word to predict the next word. If the instance of ‘N = 3’ the model will use the previous two words to predict the next word, Brownlee, J. (2017). 
+
+### References
+
+Brownlee, J. (2017). A Gentle Introduction to Calculating the BLEU Score for Text in Python. Retrieved from https://machinelearningmastery.com/calculate-bleu-score-for-text-python
+
+Britz, D. (2018). Artificial Intelligence, Deep Learning, and NLP. Retrieved from http://www.wildml.com 
+
+Isaac, A. (2018). Wikipedia: Wikipedia.com. Retrieved from https://en.wikipedia.org/wiki/Isaac_Asimov
+
+Karpathy, A. (2015). The Unreasonable Effectiveness of Recurrent Neural Networks. Retrieved from http://karpathy.github.io/2015/05/21/rnn-effectiveness/ 
+
+Keras, (2018). Retrieved from https://keras.io/preprocessing/text/
+
+Klaas, J. (2018). SciFi Stories Text Corpus. Retrieved from  https://www.kaggle.com/jannesklaas/scifi-stories-text-corpus 
+
+Lin, C., Manning, Ng, A., and Socher, R. (2011). Parsing Natural Scenes and Natural Language with Recursive Neural Networks. Retrieved from https://nlp.stanford.edu/pubs/SocherLinNgManning_ICML2011.pdf 
+
+Manning, C. and Wang, S. (n.d.). Baselines and Bigrams: Simple, Good Sentiment and Topic Classification. Retrieved from https://nlp.stanford.edu/pubs/sidaw12_simple_sentiment.pdf 
+
+Sloan, R. (2016). Writing the machine. Retrieved from https://www.robinsloan.com/notes/writing-with-the-machine/
+
+TensorFlow, (2018). Retrieved from www.tensorflow.org
+
+TensorFLow, (2018). Class SVM. Retrieved from https://www.tensorflow.org/api_docs/python/tf/contrib/learn/SVM
+
+
