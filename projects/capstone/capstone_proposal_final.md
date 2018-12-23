@@ -42,6 +42,7 @@ The BLEU Score evaluates a generated sentence to a reference sentence. The range
 ### Project Design
 
 The project work-flow will be as follows:
+
     •	Data Pre-Processing
     •	Model Design
     •	Model Evaluation
