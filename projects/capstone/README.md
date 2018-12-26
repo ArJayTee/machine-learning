@@ -15,6 +15,7 @@ You can download the 150MB text file [here](https://www.kaggle.com/jannesklaas/s
 **Requirements**
 
 **Links**
+
 [Capstone Proposal Student Submission Approval and Notes](https://review.udacity.com/#!/reviews/1629408)
 
 [Capstone Proposal]()
