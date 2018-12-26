@@ -2,9 +2,15 @@
 
 ## Text Generation with Recurrent Neural Networks
 
+### Problem Statement
 In this project an application is built using Natural Language Processing (NLP) via a Recurrent Neural Network (RNN) that creates short essays. 
 
 **Requirements**
+
+TensorFLow
+Keras
+python 2.7 or higher
+
 
 **Links**
 
@@ -21,3 +27,6 @@ A project report (in PDF format only) addressing the five major project developm
 [Development Python Code]()
 All development Python code used for your project that is required to reproduce your implemented solution and result. Your code should be in a neat and well-documented format. Using iPython Notebooks is strongly encouraged for development.
 
+**Python Scripts**
+
+- list out specific scripts used as preprocess.py, split.py, etc? 
