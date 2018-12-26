@@ -7,9 +7,9 @@ In this project an application is built using Natural Language Processing (NLP) 
 
 ### Requirements
 
-TensorFLow
-Keras
-python 2.7 or higher
+- TensorFLow
+- Keras
+- python 2.7 or higher
 
 
 ### Links
