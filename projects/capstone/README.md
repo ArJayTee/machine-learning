@@ -4,14 +4,11 @@
 
 In this project an application is built using Natural Language Processing (NLP) via a Recurrent Neural Network (RNN) that creates short essays. 
 
-
-**Dataset**
-
-You can download the 150MB text file [here](https://www.kaggle.com/jannesklaas/scifi-stories-text-corpus).
-
 **Requirements**
 
 **Links**
+
+[150MB text datasethere](https://www.kaggle.com/jannesklaas/scifi-stories-text-corpus)
 
 [Capstone Proposal Student Submission Approval and Notes](https://review.udacity.com/#!/reviews/1629408)
 
