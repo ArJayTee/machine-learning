@@ -1,6 +1,3 @@
-A README documentation file which briefly describes the software and libraries used in your project, including any necessary references to supporting material. If your project requires setup/startup, ensure that your README includes the necessary instructions.
-
-
 # Machine Learning Engineer Nanodegree Capstone
 
 ## Text Generation with Recurrent Neural Networks
