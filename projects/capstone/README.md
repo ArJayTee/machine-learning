@@ -8,7 +8,7 @@ In this project an application is built using Natural Language Processing (NLP) 
 
 **Links**
 
-[150MB text datasethere](https://www.kaggle.com/jannesklaas/scifi-stories-text-corpus)
+[150MB text dataset Used for Project](https://www.kaggle.com/jannesklaas/scifi-stories-text-corpus)
 
 [Capstone Proposal Student Submission Approval and Notes](https://review.udacity.com/#!/reviews/1629408)
 
