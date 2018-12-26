@@ -5,14 +5,14 @@
 ### Problem Statement
 In this project an application is built using Natural Language Processing (NLP) via a Recurrent Neural Network (RNN) that creates short essays. 
 
-**Requirements**
+### Requirements
 
 TensorFLow
 Keras
 python 2.7 or higher
 
 
-**Links**
+### Links
 
 [150MB text dataset Used for Project](https://www.kaggle.com/jannesklaas/scifi-stories-text-corpus)
 
@@ -27,6 +27,10 @@ A project report (in PDF format only) addressing the five major project developm
 [Development Python Code]()
 All development Python code used for your project that is required to reproduce your implemented solution and result. Your code should be in a neat and well-documented format. Using iPython Notebooks is strongly encouraged for development.
 
-**Python Scripts**
+### Python Scripts
 
 - list out specific scripts used as preprocess.py, split.py, etc? 
+
+### License
+
+The code for this project is open source and available under the terms of the license in this repository.
