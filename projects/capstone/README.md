@@ -25,7 +25,7 @@ In this project an application is built using Natural Language Processing (NLP) 
 A project report (in PDF format only) addressing the five major project development stages. The recommended page length for a project report is approximately nine to fifteen pages. Please do not export an iPython Notebook as PDF for your project report.
 
 
-### Python Scripts
+### Code
 
 - list out specific scripts used as preprocess.py, split.py, etc? 
 
