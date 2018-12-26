@@ -18,8 +18,8 @@ You can download the 150MB text file [here](https://www.kaggle.com/jannesklaas/s
 
 [Capstone Proposal Student Submission Approval and Notes](https://review.udacity.com/#!/reviews/1629408)
 
-[Capstone Proposal]()
-Your capstone proposal document as proposal.pdf if you have completed the pre-requisite Capstone Proposal project. Please also include your review link in the student submission notes.
+[Capstone Proposal PDF Document](https://github.com/ArJayTee/machine-learning/blob/master/projects/capstone/proposal.pdf)
+
 
 [Capstone Project Report]()
 A project report (in PDF format only) addressing the five major project development stages. The recommended page length for a project report is approximately nine to fifteen pages. Please do not export an iPython Notebook as PDF for your project report.
